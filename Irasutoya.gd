@@ -15,6 +15,7 @@ func _process(delta):
 	if started:
 		return
 	if game.over:
+		linear_velocity = Vector2(0, 0)
 		return
 	if Input.is_action_pressed("ui_left"):
 		set_axis_velocity(Vector2(-delta * 10000, 0))
@@ -27,17 +28,18 @@ func _process(delta):
 		self.contact_monitor = true
 		self.max_contacts_reported = 1
 		started = true
+		game.count_up()
 	else:
 		linear_velocity = Vector2(0, 0)
-		# set_axis_velocity(Vector2(0, 0))
 
 
 func _on_body_entered(_body):
-	ended = true
+	if started:
+		ended = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	var gameover = $"/root/Node2D/TextGameover"
+	var gameover = $"/root/Node2D/UI/TextGameover"
 	gameover.z_index = 200
 	gameover.visible = true
 	game.over = true

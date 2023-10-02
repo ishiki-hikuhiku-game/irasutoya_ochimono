@@ -6,6 +6,9 @@ var irasutoya2 = preload("res://irasutoya2.tscn")
 var irasutoyas = [irasutoya1, irasutoya2]
 var current_irasutoya = null
 var over = false
+var count = 0
+var countFormat = "%d個"
+@onready var countLabel = $"/root/Node2D/UI/CountLabel"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -19,3 +22,7 @@ func _process(_delta):
 		current_irasutoya = irasutoyas[next_index].instantiate()
 		get_parent().add_child(current_irasutoya)
 		current_irasutoya.position = Vector2(600, 100)
+
+func count_up():
+	count += 1
+	countLabel.text = countFormat % count
