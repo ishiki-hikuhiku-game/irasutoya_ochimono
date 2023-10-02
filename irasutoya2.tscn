@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://csx2ar1hpjes8"]
+
+[ext_resource type="Script" path="res://Irasutoya.gd" id="1_cllqs"]
+[ext_resource type="Texture2D" uid="uid://du47t3b5epqtr" path="res://images/pose_syanikamaeru_woman.png" id="2_0a3kt"]
+
+[node name="Irasutoya" type="RigidBody2D"]
+position = Vector2(600, 100)
+script = ExtResource("1_cllqs")
+
+[node name="PoseSyanikamaeruWoman" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0a3kt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(66, -170.9, 66, -169.5, 84, -164.5, 84, -163.4, 92, -160.4, 92, -158.9, 118, -135.9, 118, -133.8, 131, -117.7, 131, -114.4, 138, -99.4, 138, -90, 139.1, -74, 137.5, -74, 130.6, -46, 129.3, -46, 113.3, -10, 112.1, -10, 96, 18.5, 96, 22.4, 84.3, 50, 83.1, 50, 81.1, 53, 71, 53, 71, 51.4, 59.9, 46.9, 50.9, 57, 47.6, 57, 39, 53.1, 39, 68.1, 35.9, 111, 34.4, 111, 29.4, 126, 28, 126, 25.5, 129, 29, 130.8, 29, 139, 26.9, 139, 16, 150.9, 16, 155, 20.3, 187, 18, 187, 14, 192, 8, 192, -99, 191, -99, 188.8, -103, 184.8, -103, 170.9, -101.1, 146.7, -118, 134, -118, 131.5, -122, 124.5, -122, 119, -123.2, 105, -121.9, 105, -118.9, 63, -117.3, 63, -105.3, 34, -104, 34, -88, 12, -86.8, 12, -74.8, 0, -72.6, 0, -57.6, -10, -54.4, -10, -46, -13.4, -56, -35.6, -56, -77, -61, -87.6, -61, -97.3, -59.4, -102, -58, -102, -51, -111, -48.6, -111, -41, -116.1, -41, -117.8, -10.9, -150, -8.60001, -150, 18.4, -167, 21.6, -167, 31.6, -171, 43, -171, 43, -172.1)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

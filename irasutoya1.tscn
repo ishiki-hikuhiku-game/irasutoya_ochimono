@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://df3yqsg5636u5"]
+
+[ext_resource type="Script" path="res://Irasutoya.gd" id="1_k7mba"]
+[ext_resource type="Texture2D" uid="uid://d2cal3k6tetlb" path="res://images/osyaberi_man.png" id="2_pgx16"]
+
+[node name="Irasutoya" type="RigidBody2D"]
+position = Vector2(500, 100)
+script = ExtResource("1_k7mba")
+
+[node name="OsyaberiMan" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_pgx16")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(45, -188.9, 45, -187.5, 58, -184.6, 58, -183.1, 89, -165.2, 89, -163.9, 104, -147.8, 104, -145.5, 117, -123.5, 117, -118, 122, -98.2, 122, -86.9, 118.3, -60, 130, -51, 130, -48.7, 136, -40.7, 136, -35, 138.3, -20, 136.5, -20, 133.5, -9, 131.6, -9, 117.6, 1, 112.9, 1, 98, -0.699997, 98, 0.699997, 79, 25, 76.7, 25, 62.1, 35.9, 79, 46.9, 79, 48.1, 93, 63.2, 93, 65.5, 103, 84.5, 103, 90, 110, 135.8, 110, 137, 109, 187, 107.1, 187, 103.2, 194, 99, 194, -47, 192, -47, 190, -51, 187, -51, 180, -51.9, 164.5, -63.6, 169, -68.1, 169, -86, 166.8, -86, 165.3, -107, 155.3, -107, 153.9, -120.7, 142, -130.6, 142, -140.5, 136, -146.8, 136, -161, 137.2, -161, 135.1, -164, 133.1, -164, 126.4, -163.7, 125.9, -172, 120, -172, 117.2, -165, 110.2, -172, 106.2, -172, 98, -169.9, 98, -164.9, 92, -161.3, 92, -160.1, 91.6, -166, 83.7, -166, 81.2, -159.8, 75, -151.7, 75, -126, 83.3, -126, 80.2, -120.8, 75, -111, 75, -111, 77.3, -101, 90.3, -101, 95.6, -99.4, 103, -98.7, 103, -81.5, 107.6, -65.3, 71, -63.9, 71, -43.9, 48, -41.6, 48, -40.3, 47.1, -63, 36.3, -63, 34.9, -86, 13.9, -86, 11.5, -99, -10.5, -99, -15.6, -103, -33.8, -103, -36.1, -99.8, -67, -98.5, -67, -90, -101, -90, -106.6, -92.4, -120, -90.7, -120, -85.6, -145, -84, -145, -72, -159.8, -72, -161.5, -77, -174, -73.6, -174, -64.6, -180, -53.3, -180, -55.4, -191, -52.7, -191, -49, -194, -49, -196.2)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-118, -60.5, -118, -59, -114, -56, -114, -47, -116, -47, -119, -43, -128, -43, -128, -44.6, -158, -54.6, -158, -55.9, -161, -57.9, -161, -68, -158.7, -68, -156, -70, -156, -72.7)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-117, -35.9, -117, -33.7, -110.6, -26.3, -111.7, -24, -113.1, -24, -119.1, -17, -155, -17, -155, -19.1, -161, -24.1, -161, -31, -159, -31, -155, -36, -147, -36, -147, -37.1)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-113, -9.7, -113, -7.8, -110, -4.8, -110, 3, -116.3, 8, -120.9, 8, -151, 15.6, -151, 13.2, -157, 10.2, -157, 6.3, -158.8, 1, -155.7, 1, -146.7, -6, -142.4, -6, -124, -9.7, -124, -11.3)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-107, 16.3, -107, 18.2, -103, 22.2, -103, 29, -105.3, 29, -113.2, 36, -117.4, 36, -136.4, 48, -144.2, 48, -151.4, 35, -147.8, 35, -136.8, 25, -132.5, 25, -117, 16.8, -117, 14.6)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

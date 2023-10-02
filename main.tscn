@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnd7nwulal4o"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_u6oct"]
+[ext_resource type="Texture2D" uid="uid://6olehi4o66yr" path="res://images/text_gameover_e.png" id="2_1wdn5"]
+[ext_resource type="AudioStream" uid="uid://cvs438bxrexy3" path="res://musics/Kizuna.mp3" id="3_niyfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kii88"]
+size = Vector2(800, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(600, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_kii88")
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground"]
+position = Vector2(-424.305, -501)
+scale = Vector2(0.694974, 1)
+polygon = PackedVector2Array(-1, 489, 1079.13, 489, 1153, 489, 1153, 509, 1051.13, 509.088, 0, 510)
+
+[node name="Game" type="Node" parent="."]
+script = ExtResource("1_u6oct")
+
+[node name="TextGameover" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(578, 412)
+texture = ExtResource("2_1wdn5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(600, 300)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource("3_niyfk")
+autoplay = true
